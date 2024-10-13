@@ -1,12 +1,13 @@
 using FilmoSearch_Trainee_Task.DI;
 using FilmoSearch_Trainee_Task.Middlewares;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSerilog(_ => _.WriteTo.Console());
+
 builder.Services.AddApiDependencies(builder.Configuration);
-
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
