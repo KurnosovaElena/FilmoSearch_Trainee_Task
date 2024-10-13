@@ -1,0 +1,6 @@
+services:
+  filmosearch_trainee_task:
+    image: ${DOCKER_REGISTRY-}filmosearchtraineetask
+    build:
+      context: .
+      dockerfile: FilmoSearch_Trainee_Task/Dockerfile

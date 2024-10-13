@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoSearch_Trainee_Task", "FilmoSearch_Trainee_Task\FilmoSearch_Trainee_Task.csproj", "{BC00C153-E046-4484-9165-97FC6C409088}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmoSearch_Trainee_Task", "FilmoSearch_Trainee_Task\FilmoSearch_Trainee_Task.csproj", "{BC00C153-E046-4484-9165-97FC6C409088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoSearch.BusinessLogicLayer", "FilmoSearch.BusinessLogicLayer\FilmoSearch.BusinessLogicLayer.csproj", "{AB25F9B6-D03C-40EF-AF2B-E5AE53DE316C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmoSearch.BusinessLogicLayer", "FilmoSearch.BusinessLogicLayer\FilmoSearch.BusinessLogicLayer.csproj", "{AB25F9B6-D03C-40EF-AF2B-E5AE53DE316C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoSearch.DataAcessLayer", "FilmoSearch.DataAcessLayer\FilmoSearch.DataAcessLayer.csproj", "{B695357F-384D-4902-8368-09E31B38ED43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmoSearch.DataAcessLayer", "FilmoSearch.DataAcessLayer\FilmoSearch.DataAcessLayer.csproj", "{B695357F-384D-4902-8368-09E31B38ED43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoSearch.Tests", "FilmoSearch.Tests\FilmoSearch.Tests.csproj", "{517524B9-5FF0-4B85-860B-D8146462F5C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmoSearch.Tests", "FilmoSearch.Tests\FilmoSearch.Tests.csproj", "{517524B9-5FF0-4B85-860B-D8146462F5C6}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{20FC4DE5-FC0C-4784-907D-E3FFA49DC502}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{517524B9-5FF0-4B85-860B-D8146462F5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{517524B9-5FF0-4B85-860B-D8146462F5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{517524B9-5FF0-4B85-860B-D8146462F5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20FC4DE5-FC0C-4784-907D-E3FFA49DC502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20FC4DE5-FC0C-4784-907D-E3FFA49DC502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20FC4DE5-FC0C-4784-907D-E3FFA49DC502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20FC4DE5-FC0C-4784-907D-E3FFA49DC502}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
