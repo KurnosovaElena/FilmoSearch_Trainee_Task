@@ -3,8 +3,11 @@ using FilmoSearch.BusinessLogicLayer.DI;
 using FilmoSearch_Trainee_Task.Authorization;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using System.Reflection;
+using System.Security.Claims;
 
 namespace FilmoSearch_Trainee_Task.DI
 {
@@ -17,6 +20,7 @@ namespace FilmoSearch_Trainee_Task.DI
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddFluentValidationAutoValidation();
             services.ConfigureSwagger();
+            services.AddAuth0Authentication(configuration);
         }
 
         private static void AddAuth0Authentication(this IServiceCollection services, IConfiguration configuration)
@@ -31,13 +35,16 @@ namespace FilmoSearch_Trainee_Task.DI
         {
             options.Authority = $"https://{configuration["Auth0:Domain"]}/";
             options.Audience = configuration["Auth0:Audience"];
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                NameClaimType = ClaimTypes.NameIdentifier
+            };
         });
 
             services.AddAuthorizationBuilder()
-                .AddPolicy("change:catalogue", policy =>
-                    policy.Requirements.Add(
-                        new HasScopeRequirement("change:catalogue", configuration["Auth0:Domain"])
-                        ));
+               .AddPolicy("change:list", policy => policy.Requirements.Add(new
+                HasScopeRequirement("change:list", configuration["Auth0:Domain"])));
+                
 
         }
     }

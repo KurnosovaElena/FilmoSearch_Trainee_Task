@@ -9,17 +9,7 @@ using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(options =>
-{
-    options.Authority = domain;
-    options.Audience = builder.Configuration["Auth0:Audience"];
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        NameClaimType = ClaimTypes.NameIdentifier
-    };
-});
+
 // Add services to the container.
 builder.Services.AddSerilog(_ => _.WriteTo.Console());
 
@@ -28,13 +18,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("read:messages", policy => policy.Requirements.Add(new
-    HasScopeRequirement("read:messages", domain)));
-    options.AddPolicy("change:list", policy => policy.Requirements.Add(new 
-    HasScopeRequirement("change:list", domain)));
-});
 
 builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 
