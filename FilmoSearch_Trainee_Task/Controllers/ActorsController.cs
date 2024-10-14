@@ -1,6 +1,7 @@
 ﻿using FilmoSearch.BusinessLogicLayer.DataTransferObjects;
 using FilmoSearch.BusinessLogicLayer.DataTransferObjects.CreateDTOs;
 using FilmoSearch.BusinessLogicLayer.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmoSearch_Trainee_Task.Controllers
@@ -24,6 +25,7 @@ namespace FilmoSearch_Trainee_Task.Controllers
         }
 
         [HttpPost]
+        [Authorize("change:list")]
         public async Task<ActorDTO> Add(CreateActorDTO entity, CancellationToken cancellationToken)
         {
             var actordto = await service.Add(entity, cancellationToken);
@@ -32,12 +34,14 @@ namespace FilmoSearch_Trainee_Task.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize("change:list")]
         public async Task Update(int id, CreateActorDTO entity, CancellationToken cancellationToken)
         {
             await service.Update(id, entity, cancellationToken);
         }
 
         [HttpDelete("{id}")]
+        [Authorize("change:list")]
         public async Task Delete(int id, CancellationToken cancellationToken)
         {
             await service.Delete(id, cancellationToken);
